@@ -107,7 +107,7 @@ NodePort should also be created.
       minikube enable addons metrics-server
     ```
 
-   # OR
+   ### OR
 
   * Applying metric-server yaml file
    ```  
@@ -136,7 +136,7 @@ NodePort should also be created.
       minikube dashboard --url
   ```
 
-  # OR
+  ### OR
 
 
   * To deploy Dashboard, execute following command:
