@@ -1,0 +1,24 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: prometheus-deployment
+  labels:
+    app: prometheus-flask-app
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: prometheus-flask-app
+  template:
+    metadata:
+      labels:
+        app: prometheus-flask-app
+    spec:
+      containers:
+      - name: prometheus-flask-app-container
+        image: p0p00bp/prometheus_service_expose
+        ports:
+        - containerPort: 5000
+        resources:
+            requests:
+              cpu: 200m
