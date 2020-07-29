@@ -20,6 +20,7 @@ Clone this repository to build and deploy the application
     git clone https://github.com/p-24/prometheus_api_metrics.git
     cd prometheus_api_metrics
 ```
+
 ## Contents of prometheus_api_metrics
 
 1. docs - Reference Images
@@ -34,11 +35,18 @@ Clone this repository to build and deploy the application
 
 # Initial Configuration
 
+## Prerequisites
+* Prometheus
+* Grafana
+* Docker
+* Minikube / Kubeadm to create Kuberenetes Cluster
+
+
 ### Procedure Followed to create Docker Image
 
 Build Docker Image for the Python Flask application
 ```
-  docker build -t prometheus_service_expose . 
+  docker build -t prometheus_service_expose .
 ```
 
 Login to Docker
@@ -70,7 +78,7 @@ Verify if pod is created and running.
 NodePort should also be created.
 <img width="581" alt="pod_service_list" src="https://user-images.githubusercontent.com/11732564/88547625-dad9a580-cfd2-11ea-99d4-97240f047f8e.png">
 
-### Verify the url for custom metrics 
+### Verify the url for custom metrics
   ```
       http://<HOST IP>:30000/metrics
   ```
@@ -88,21 +96,46 @@ NodePort should also be created.
 
 
 *** Kubernetes Metrics Server and Horizontal Pod Autoscaler (HPA) has been setup
-  ```  
+
+    Mertic Server can be enabled via 2 ways
+
+    * On Minikube : Enabling metrics Server Addons
+
+    ```
+       minikube enable addons metrics-server
+   ```
+
+   # OR
+
+    * Applying metric-server yaml file
+   ```  
       kubectl apply -f k8s/metric-server.yml
+
   ```
   Create Horizontal Pod Autoscaler
-  ``` 
+
+  ```
       kubectl autoscale deployment prometheus-deployment --cpu-percent=10 --min=1 --max=5
   ```
+
    HPA reacting to increase and decrease in load
-   
+
   <img width="761" alt="HPA_up_scale" src="https://user-images.githubusercontent.com/11732564/88547652-e200b380-cfd2-11ea-9b4e-9d6e1e60c9a4.png">
   <img width="737" alt="HPA_down_scale" src="https://user-images.githubusercontent.com/11732564/88547579-cc8b8980-cfd2-11ea-869b-114324bc2a9b.png">
 
-*** This also shows cluster status via kubernetes dashboard
-    
-  To deploy Dashboard, execute following command:
+*** This also shows cluster status via kubernetes dashboard.
+
+  * On Minikube : Enabling Dashboard Addons and accessing it
+
+  ```
+      minikube addons enable dashboard
+      minikube dashboard --url
+  ```
+
+  OR
+
+
+  * To deploy Dashboard, execute following command:
   ```
       kubectl apply -f https://raw.githubusercontent.com/kubernetes/dashboard/v2.0.3/aio/deploy/recommended.yaml
   ```
@@ -115,11 +148,12 @@ NodePort should also be created.
 http://localhost:8001/api/v1/namespaces/kubernetes-dashboard/services/https:kubernetes-dashboard:/proxy
 
  It needs bearer token to access, Please refer guide : https://github.com/kubernetes/dashboard/blob/master/docs/user/access-control/creating-sample-user.md
- 
+
 <img width="1566" alt="Kuberenetes_dashboard" src="https://user-images.githubusercontent.com/11732564/88547528-bd0c4080-cfd2-11ea-9eed-53d52b489240.png">
 
-  
+
 # Further Enhancements
   * Multithreading implementation
   * Retries and timeout concept with try exception block
   * Handling network malfunctioning
+  * Detecting pod failures via liveness probe and readiness probe
