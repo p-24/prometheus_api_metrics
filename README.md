@@ -86,13 +86,13 @@ NodePort should also be created.
   ```
 # Metrics view From
 ## App
-<img width="747" alt="Screenshot 2020-07-29 at 1 40 16 AM" src="https://user-images.githubusercontent.com/11732564/88781613-74bf6080-d141-11ea-9021-03bf9369de57.png">
+<img width="740" alt="Screenshot 2020-07-29 at 1 40 16 AM" src="https://user-images.githubusercontent.com/11732564/88781613-74bf6080-d141-11ea-9021-03bf9369de57.png">
 
 ## Prometheus  
 <img width="1566" alt="Prometheus_view" src="https://user-images.githubusercontent.com/11732564/88781682-8acd2100-d141-11ea-80b2-ab5802e7faca.png">
 
 ## Grafana
-<img width="1553" alt="prometheus_grafana" src="https://user-images.githubusercontent.com/11732564/88547597-d1e8d400-cfd2-11ea-87e7-e9dd6a0f8839.png">
+
 
 # Additional Features
 
@@ -100,7 +100,7 @@ NodePort should also be created.
 *** Kubernetes Metrics Server and Horizontal Pod Autoscaler (HPA) has been setup
 
   Mertic Server can be enabled via 2 ways
-   * On Minikube : Enabling metrics Server Addons
+  * On Minikube : Enabling metrics Server Addons
 
     ```
       minikube enable addons metrics-server
@@ -108,7 +108,7 @@ NodePort should also be created.
 
    # OR
 
-   * Applying metric-server yaml file
+  * Applying metric-server yaml file
    ```  
       kubectl apply -f k8s/metric-server.yml
 
@@ -135,7 +135,7 @@ NodePort should also be created.
       minikube dashboard --url
   ```
 
-  OR
+  # OR
 
 
   * To deploy Dashboard, execute following command:
