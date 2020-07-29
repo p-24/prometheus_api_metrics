@@ -92,6 +92,7 @@ NodePort should also be created.
 <img width="1566" alt="Prometheus_view" src="https://user-images.githubusercontent.com/11732564/88781682-8acd2100-d141-11ea-80b2-ab5802e7faca.png">
 
 ## Grafana
+<img width="800" alt="Prometheus_view" src="https://user-images.githubusercontent.com/11732564/88787137-42653180-d148-11ea-8766-9dfd5ba70de1.png">
 
 
 # Additional Features
