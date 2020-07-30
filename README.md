@@ -36,6 +36,7 @@ Clone this repository to build and deploy the application
 # Initial Configuration
 
 ## Prerequisites
+* Python
 * Prometheus
 * Grafana
 * Docker
