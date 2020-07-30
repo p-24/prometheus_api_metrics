@@ -64,7 +64,7 @@ Tag the above image and push it to Docker Repository (HUB)
 
 #To use the above image from DockerHub, please run :
  ```
-    docker pull prometheus_service_expose:latest
+    docker pull p0p00bp/prometheus_service_expose
  ```
 Docker Repo link for the above image : https://hub.docker.com/r/p0p00bp/prometheus_service_expose
 
