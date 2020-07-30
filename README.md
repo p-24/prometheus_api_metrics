@@ -7,7 +7,8 @@ Custom metrics have been obtained from urls :
  * https://httpstat.us/200
  * https://httpstat.us/503
 
-
+This repo show custom metrics being monitored by prometheus and grafana running on localhost. 
+We can also have prometheus and grafana running as pods along with application pod. Detail explanation in : https://github.com/p-24/prometheus_grafana_pods
 
 # Simple Architecture
 
