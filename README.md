@@ -101,7 +101,7 @@ NodePort should also be created.
 
 #### *Kubernetes Metrics Server and Horizontal Pod Autoscaler (HPA) has been setup
 
-  Mertic Server can be enabled via 2 ways
+  Mertics Server can be enabled via 2 ways
   * On Minikube : Enabling metrics Server Addons
 
     ```
