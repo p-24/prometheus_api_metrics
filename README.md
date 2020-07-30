@@ -162,3 +162,9 @@ http://localhost:8001/api/v1/namespaces/kubernetes-dashboard/services/https:kube
   * Retries and timeout concept with try exception block
   * Handling network malfunctioning
   * Detecting pod failures via liveness probe and readiness probe
+  
+# UnitTest 
+   To run unit tests 
+   ```
+   python -m unittest unitTests/mytestcases.py
+   ```
