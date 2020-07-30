@@ -6,6 +6,7 @@ This Project describes how prometheus custom metrics being exposed in python app
 Custom metrics have been obtained from urls :
         ``` 
           https://httpstat.us/200
+          
           https://httpstat.us/503
         ```  
 
