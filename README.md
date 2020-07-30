@@ -105,7 +105,7 @@ NodePort should also be created.
   * On Minikube : Enabling metrics Server Addons
 
     ```
-      minikube enable addons metrics-server
+      minikube addons enable metrics-server
     ```
 
    ### OR
