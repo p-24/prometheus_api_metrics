@@ -8,6 +8,7 @@ Custom metrics have been obtained from urls :
  * https://httpstat.us/503
 
 
+
 # Simple Architecture
 
 <img width="795" alt="arc" src="https://user-images.githubusercontent.com/11732564/88547483-aebe2480-cfd2-11ea-8c15-397c175718ea.png">
@@ -74,10 +75,11 @@ Docker Repo link for the above image : https://hub.docker.com/r/p0p00bp/promethe
       kubectl apply -f k8s/deployment.yml
       kubectl apply -f k8s/service.yml
    ```
+   <img width="544" alt="deployment_svc_apply" src="https://user-images.githubusercontent.com/11732564/88781674-87399a00-d141-11ea-9926-a61ce6c9f53a.png">
 
 Verify if pod is created and running.
 NodePort should also be created.
-<img width="581" alt="pod_service_list" src="https://user-images.githubusercontent.com/11732564/88547625-dad9a580-cfd2-11ea-99d4-97240f047f8e.png">
+   <img width="623" alt="pod_list" src="https://user-images.githubusercontent.com/11732564/88781656-80ab2280-d141-11ea-8add-af730cca7e39.png">
 
 ### Verify the url for custom metrics
   ```
@@ -85,34 +87,35 @@ NodePort should also be created.
   ```
 # Metrics view From
 ## App
-<img width="1254" alt="app_view" src="https://user-images.githubusercontent.com/11732564/88547607-d7461e80-cfd2-11ea-84a8-ad7a481eeca6.png">
+<img width="740" alt="Screenshot 2020-07-29 at 1 40 16 AM" src="https://user-images.githubusercontent.com/11732564/88781613-74bf6080-d141-11ea-9021-03bf9369de57.png">
 
 ## Prometheus  
-<img width="1561" alt="prometheus_metrics" src="https://user-images.githubusercontent.com/11732564/88547644-df9e5980-cfd2-11ea-86ca-7db328711843.png">
+<img width="1566" alt="Prometheus_view" src="https://user-images.githubusercontent.com/11732564/88781682-8acd2100-d141-11ea-80b2-ab5802e7faca.png">
 
 ## Grafana
-<img width="1553" alt="prometheus_grafana" src="https://user-images.githubusercontent.com/11732564/88547597-d1e8d400-cfd2-11ea-87e7-e9dd6a0f8839.png">
+<img width="800" alt="Prometheus_view" src="https://user-images.githubusercontent.com/11732564/88787137-42653180-d148-11ea-8766-9dfd5ba70de1.png">
+
 
 # Additional Features
 
 
-*** Kubernetes Metrics Server and Horizontal Pod Autoscaler (HPA) has been setup
+#### *Kubernetes Metrics Server and Horizontal Pod Autoscaler (HPA) has been setup
 
-    Mertic Server can be enabled via 2 ways
-
-    * On Minikube : Enabling metrics Server Addons
+  Mertic Server can be enabled via 2 ways
+  * On Minikube : Enabling metrics Server Addons
 
     ```
-       minikube enable addons metrics-server
-   ```
+      minikube enable addons metrics-server
+    ```
 
-   # OR
+   ### OR
 
-    * Applying metric-server yaml file
+  * Applying metric-server yaml file
    ```  
       kubectl apply -f k8s/metric-server.yml
 
   ```
+  
   Create Horizontal Pod Autoscaler
 
   ```
@@ -121,10 +124,11 @@ NodePort should also be created.
 
    HPA reacting to increase and decrease in load
 
-  <img width="761" alt="HPA_up_scale" src="https://user-images.githubusercontent.com/11732564/88547652-e200b380-cfd2-11ea-9b4e-9d6e1e60c9a4.png">
-  <img width="737" alt="HPA_down_scale" src="https://user-images.githubusercontent.com/11732564/88547579-cc8b8980-cfd2-11ea-869b-114324bc2a9b.png">
+<img width="840" alt="increase_hpa" src="https://user-images.githubusercontent.com/11732564/88781663-843ea980-d141-11ea-880e-e38070a3e3e7.png">
 
-*** This also shows cluster status via kubernetes dashboard.
+<img width="745" alt="decrease_hpa" src="https://user-images.githubusercontent.com/11732564/88781627-77ba5100-d141-11ea-89ba-180f6fc8f4e6.png">
+
+#### *This also shows cluster status via kubernetes dashboard.
 
   * On Minikube : Enabling Dashboard Addons and accessing it
 
@@ -133,7 +137,7 @@ NodePort should also be created.
       minikube dashboard --url
   ```
 
-  OR
+  ### OR
 
 
   * To deploy Dashboard, execute following command:
@@ -149,10 +153,8 @@ NodePort should also be created.
 http://localhost:8001/api/v1/namespaces/kubernetes-dashboard/services/https:kubernetes-dashboard:/proxy
 
  It needs bearer token to access, Please refer guide : https://github.com/kubernetes/dashboard/blob/master/docs/user/access-control/creating-sample-user.md
-
-<img width="1566" alt="Kuberenetes_dashboard" src="https://user-images.githubusercontent.com/11732564/88547528-bd0c4080-cfd2-11ea-9eed-53d52b489240.png">
-
-
+    <img width="1556" alt="kubernetes_view" src="https://user-images.githubusercontent.com/11732564/88781691-8dc81180-d141-11ea-8667-5354967e2e36.png">
+    
 # Further Enhancements
   * Multithreading implementation
   * Retries and timeout concept with try exception block
