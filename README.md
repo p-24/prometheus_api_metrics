@@ -4,7 +4,7 @@
 This Project describes how prometheus custom metrics being exposed in python application can run on a Kubernetes Cluster, being monitored through Prometheus, Grafana and Kubernetes dashboard. With HPA(Horizontal Pod Autoscaler) being implemented too.
 
 * This repo show custom metrics being monitored by prometheus and grafana running on localhost. 
-* We can also have prometheus and grafana running as pods along with the application pod. Detail explanation in : https://github.com/p-24/prometheus_grafana_pods
+* We can also have prometheus and grafana running as pods along with the application pod. Ingress rules have also been implemented here. Detail explanation in : https://github.com/p-24/prometheus_grafana_pods
 
 Custom metrics have been obtained from urls :
 * https://httpstat.us/200 
@@ -27,7 +27,7 @@ Clone this repository to build and deploy the application
 ## Contents of prometheus_api_metrics
 
 1. docs - Reference Images
-2. k8s/deployement.yml - Deployment file used to create kubernetes deployment
+2. k8s/deployment.yml - Deployment file used to create kubernetes deployment
 3. k8s/service.yml - Service file used to create Kubernetes deployment. Here NodePort.
 4. k8s/metric-server.yml - It collects information about used resources (memory and CPU) of nodes and Pods.
 5. src/app.py - Flask application to expose custom prometheus metrics.
