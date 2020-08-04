@@ -1,5 +1,5 @@
 import unittest
-import appStatus as test_file
+from src import app as test_file
 
 appObj = test_file.CustomCollector
 
